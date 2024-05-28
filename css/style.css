@@ -14,10 +14,9 @@ header {
     height: 90px;
 }
 
-h1 {
+header h1 {
     color: #901C1C;
     margin-right: 100px;
-
 }
 
 p {

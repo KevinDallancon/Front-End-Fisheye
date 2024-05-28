@@ -46,6 +46,7 @@ export function photographerTemplate(data) {
 
         const h1 = document.createElement('h1');
         h1.textContent = name;
+        h1.classList= '.special-h1'
 
         // Paragraphe pour la ville et le pays
         const locationParagraph = document.createElement('p');

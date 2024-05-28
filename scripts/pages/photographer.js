@@ -42,7 +42,7 @@ async function getMediaPhotographers(id) {
 }
 
 async function displayMediaPhotographer(photographerMedia) {
- const sectionMedia = document.querySelector('.media');
+ const sectionMedia = document.querySelector('.medias');
  photographerMedia.forEach(mediaData => {
   const mediaModel = mediaTemplate(mediaData);
   const mediaElement = mediaModel.getMediaDom();
@@ -50,6 +50,31 @@ async function displayMediaPhotographer(photographerMedia) {
 });
 
 }
+// Fonction asynchrone pour trier les médias en fonction du filtre sélectionné
+// async function trieMedia() {
+// //   // Ajout du listener pour trier les pièces par ordre de prix croissant
+// //    const boutonTrier = document.querySelector(".btn-trier");
+// //    boutonTrier.addEventListener("click", function () {
+// //    const piecesOrdonnees = Array.from(pieces)
+// //    piecesOrdonnees.sort(function (a, b) {
+// //        return b.prix - a.prix;
+// //    });
+// //   // Effacement de l'écran et regénération de la page
+// //   document.querySelector(".fiches").innerHTML = "";
+// //   genererPieces(piecesOrdonnees);
+// // });
+ 
+// // // Ajout du listener pour filtrer les pièces non abordables
+// // const boutonFiltrer = document.querySelector(".btn-filtrer");
+// // boutonFiltrer.addEventListener("click", function () {
+// //    const piecesFiltrees = pieces.filter(function (piece) {
+// //        return piece.disponibilite;
+// //    });
+// //    // Effacement de l'écran et regénération de la page avec les pièces filtrées uniquement
+// //   document.querySelector(".fiches").innerHTML = "";
+// //   genererPieces(piecesFiltrees);
+// // });
+// }
 // Fonction d'initialisation qui récupère les données du photographe et affiche les médias
 async function init() {
   // Récupère les datas du photographe
@@ -57,6 +82,8 @@ async function init() {
   displayDataPhotographer(selectedPhotographer);
   const selectedMedia = await getMediaPhotographers(id)
   displayMediaPhotographer(selectedMedia);
+  // trieMedia(selectedMedia);
 
 }
 init();
+
