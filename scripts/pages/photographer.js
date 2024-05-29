@@ -48,33 +48,55 @@ async function displayMediaPhotographer(photographerMedia) {
   const mediaElement = mediaModel.getMediaDom();
   sectionMedia.appendChild(mediaElement);
 });
-
 }
 // Fonction asynchrone pour trier les médias en fonction du filtre sélectionné
-// async function trieMedia() {
+async function trieMedia(media) {
 // //   // Ajout du listener pour trier les pièces par ordre de prix croissant
-// //    const boutonTrier = document.querySelector(".btn-trier");
-// //    boutonTrier.addEventListener("click", function () {
-// //    const piecesOrdonnees = Array.from(pieces)
-// //    piecesOrdonnees.sort(function (a, b) {
-// //        return b.prix - a.prix;
-// //    });
-// //   // Effacement de l'écran et regénération de la page
-// //   document.querySelector(".fiches").innerHTML = "";
-// //   genererPieces(piecesOrdonnees);
-// // });
- 
-// // // Ajout du listener pour filtrer les pièces non abordables
-// // const boutonFiltrer = document.querySelector(".btn-filtrer");
-// // boutonFiltrer.addEventListener("click", function () {
-// //    const piecesFiltrees = pieces.filter(function (piece) {
-// //        return piece.disponibilite;
-// //    });
-// //    // Effacement de l'écran et regénération de la page avec les pièces filtrées uniquement
-// //   document.querySelector(".fiches").innerHTML = "";
-// //   genererPieces(piecesFiltrees);
-// // });
-// }
+const boutonTrier = document.getElementById('tri-select');
+boutonTrier.addEventListener('change', function(e) {
+  const selectedValue = e.target.value;
+  // Copie du tableau
+  const tableauMedia = Array.from(media);
+  
+  switch (selectedValue) {
+    case 'option1':
+        console.log('Popularité sélectionnée');
+        // Trie sur la copie du tableau
+        tableauMedia.sort( function (a,b) {
+          return b.likes - a.likes;
+        });
+        console.log(tableauMedia);
+        break;
+    case 'option2':
+        console.log('Date sélectionnée');
+        // Ajoutez ici le code à exécuter pour l'option Date
+        // Trie sur la copie du tableau
+        tableauMedia.sort( function (a,b) {
+          return b.date - a.date;
+        });
+        console.log(tableauMedia);
+        break;
+    case 'option3':
+        console.log('Titre sélectionnée');
+        // Ajoutez ici le code à exécuter pour l'option Titre
+        // Trie sur la copie du tableau
+        tableauMedia.sort( function (a,b) {
+          return a.title.localeCompare(b.title);
+        });
+        console.log(tableauMedia);
+        break;
+    default:
+        console.log('Aucune option valide sélectionnée');
+        return;
+  }
+    // Effacement de l'écran et regénération de la page
+    document.querySelector(".medias").innerHTML = "";
+    //Appel de la fonction pour afficher les medias trier
+    displayMediaPhotographer(tableauMedia)
+});
+console.log(boutonTrier);
+
+}
 // Fonction d'initialisation qui récupère les données du photographe et affiche les médias
 async function init() {
   // Récupère les datas du photographe
@@ -82,8 +104,7 @@ async function init() {
   displayDataPhotographer(selectedPhotographer);
   const selectedMedia = await getMediaPhotographers(id)
   displayMediaPhotographer(selectedMedia);
-  // trieMedia(selectedMedia);
-
+  trieMedia(selectedMedia);
 }
 init();
 
