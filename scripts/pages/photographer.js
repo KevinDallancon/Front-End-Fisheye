@@ -43,6 +43,8 @@ async function getMediaPhotographers(id) {
 
 async function displayMediaPhotographer(photographerMedia) {
  const sectionMedia = document.querySelector('.medias');
+ // Effacement de l'écran et regénération de la page
+ sectionMedia.innerHTML = "";
  photographerMedia.forEach(mediaData => {
   const mediaModel = mediaTemplate(mediaData);
   const mediaElement = mediaModel.getMediaDom();
@@ -50,13 +52,11 @@ async function displayMediaPhotographer(photographerMedia) {
 });
 }
 // Fonction asynchrone pour trier les médias en fonction du filtre sélectionné
-async function trieMedia(media) {
+function trieMedia(tableauMedia) {
 // //   // Ajout du listener pour trier les pièces par ordre de prix croissant
 const boutonTrier = document.getElementById('tri-select');
 boutonTrier.addEventListener('change', function(e) {
   const selectedValue = e.target.value;
-  // Copie du tableau
-  const tableauMedia = Array.from(media);
   
   switch (selectedValue) {
     case 'option1':
@@ -89,12 +89,18 @@ boutonTrier.addEventListener('change', function(e) {
         console.log('Aucune option valide sélectionnée');
         return;
   }
-    // Effacement de l'écran et regénération de la page
-    document.querySelector(".medias").innerHTML = "";
+    
     //Appel de la fonction pour afficher les medias trier
     displayMediaPhotographer(tableauMedia)
 });
 console.log(boutonTrier);
+
+}
+async function displayPrice(data) {
+  const sectionPhotographerPrice = document.querySelector('.photographer-price');
+  sectionPhotographerPrice.textContent = data.price + "€  /jour";
+  console.log(sectionPhotographerPrice);
+  body.appendChild(sectionPhotographerPrice);
 
 }
 // Fonction d'initialisation qui récupère les données du photographe et affiche les médias
@@ -102,6 +108,7 @@ async function init() {
   // Récupère les datas du photographe
   const selectedPhotographer = await getPhotographers(id);
   displayDataPhotographer(selectedPhotographer);
+  displayPrice(selectedPhotographer);
   const selectedMedia = await getMediaPhotographers(id)
   displayMediaPhotographer(selectedMedia);
   trieMedia(selectedMedia);

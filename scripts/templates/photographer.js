@@ -77,5 +77,6 @@ export function photographerTemplate(data) {
 
         return (divImg);
     }
+    
     return { getUserCardDOM, photographerDetails, photographerPhoto }
 }
