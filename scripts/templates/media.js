@@ -49,8 +49,27 @@ export function mediaTemplate(data) {
     heartIcon.setAttribute("class", 'heartIcon fas fa-heart');
     heartDiv.appendChild(heartIcon);
 
-
     return article
   }
-  return { getMediaDom }
+  function getMediaModal() {
+    const mySlide = document.createElement('div');
+    mySlide.setAttribute("class", 'mySlides');
+    
+    if (image) {
+      // Creation de l'element image
+      const img = document.createElement('img')
+      img.setAttribute("src", picture)
+      img.setAttribute("alt", title)
+      mySlide.appendChild(img)
+    } 
+    if (video) {
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute("src", mediaVideo);
+      videoElement.setAttribute('type', "video/mp4");
+      videoElement.controls = true;
+      mySlide.appendChild(videoElement);
+    }
+    return mySlide;
+  }
+  return { getMediaDom, getMediaModal }
 }

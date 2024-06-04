@@ -29,38 +29,49 @@
       <div class="medias"></div>
       
     </main>
+    <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+      <span class="close cursor" onclick="closeLightbox()" aria-label="Fermer">&times;</span>
+      <div class="modal-content">
+        <!-- Les slides de la lightbox seront insérés ici -->
+      </div>
+      <a class="prev" onclick="plusSlides(-1)" aria-label="Diapositive précédente" role="button" tabindex="0">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" aria-label="Diapositive suivante" role="button" tabindex="0">&#10095;</a>
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+    </div>    
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        
-				<form role="form">
-          <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
-        
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" required aria-required="true" aria-label="First name" aria-describedby="prenomHelp" />
-            <span id="prenomHelp" class="visually-hidden">Votre prénom est requis.</span>
-        
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" required aria-required="true" aria-label="Last name" aria-describedby="nomHelp" />
-            <span id="nomHelp" class="visually-hidden">Votre nom est requis.</span>
-        
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required aria-required="true" aria-label="Email" aria-describedby="emailHelp" />
-            <span id="emailHelp" class="visually-hidden">Votre email est requis.</span>
-        
-            <label for="precisions">Votre message</label>
-            <textarea name="precisions" id="precisions" rows="4" aria-label="Your message" aria-describedby="precisionsHelp"></textarea>
-            <span id="precisionsHelp" class="visually-hidden">Décrivez brièvement votre demande.</span>
-          </div>
-          <button type="submit" class="contact_button" aria-label="Send">Envoyer</button>
-        </form>
-			</div>
-		</div>
-    <div class="photographer-price"></div>
-    <script type="module" src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form role="form">
+        <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
+      
+          <label for="prenom">Prénom</label>
+          <input type="text" name="prenom" id="prenom" required aria-required="true" aria-label="First name" aria-describedby="prenomHelp" />
+          <span id="prenomHelp">Votre prénom est requis.</span>
+      
+          <label for="nom">Nom</label>
+          <input type="text" name="nom" id="nom" required aria-required="true" aria-label="Last name" aria-describedby="nomHelp" />
+          <span id="nomHelp">Votre nom est requis.</span>
+      
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required aria-required="true" aria-label="Email" aria-describedby="emailHelp" />
+          <span id="emailHelp">Votre email est requis.</span>
+      
+          <label for="precisions">Votre message</label>
+          <textarea name="precisions" id="precisions" rows="4" aria-label="Your message" aria-describedby="precisionsHelp"></textarea>
+          <span id="precisionsHelp">Décrivez brièvement votre demande.</span>
+        </div>
+        <button type="submit" class="contact_button" aria-label="Send">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <div class="photographer-price"></div>
+  <script type="module" src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/lightbox.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
