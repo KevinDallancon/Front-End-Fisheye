@@ -1,82 +1,80 @@
-export function photographerTemplate(data) {
-    const { name, portrait, id, city, country, tagline, price } = data;
+export function photographerTemplate (data) {
+  const { name, portrait, id, city, country, tagline, price } = data
 
-    const picture = `assets/photographers/${portrait}`;
+  const picture = `assets/photographers/${portrait}`
 
+  function getUserCardDOM () {
+    const article = document.createElement('article')
+    const img = document.createElement('img')
+    img.setAttribute('src', picture)
+    img.setAttribute('alt', name)
+    const h2 = document.createElement('h2')
+    h2.textContent = name
+    // Ajout du lien pour la zone focusable h2 + img
+    const link = document.createElement('a')
+    link.setAttribute('href', `./photographer.html?id=${id}`)
+    link.classList.add('link')
+    // Paragraphe pour la ville et le pays
+    const locationParagraph = document.createElement('p')
+    locationParagraph.textContent = city + ', ' + country
+    locationParagraph.classList.add('location')
+    // Ajout du tagline en paragraphe
+    const taglineParagraph = document.createElement('p')
+    taglineParagraph.textContent = tagline
+    taglineParagraph.classList.add('tagline')
+    // Ajout du Price en paragraphe
+    const priceParagraph = document.createElement('p')
+    priceParagraph.textContent = price + '€/jour'
+    priceParagraph.classList.add('price')
 
-    function getUserCardDOM() {
+    // Ajout des elements au dom
+    article.appendChild(link)
+    article.appendChild(locationParagraph)
+    article.appendChild(taglineParagraph)
+    article.appendChild(priceParagraph)
+    link.appendChild(img)
+    link.appendChild(h2)
 
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("alt", name)
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        // Ajout du lien pour la zone focusable h2 + img
-        const link = document.createElement('a');
-        link.setAttribute("href", `./photographer.html?id=${id}`)
-        link.classList.add('link');
-        // Paragraphe pour la ville et le pays
-        const locationParagraph = document.createElement('p');
-        locationParagraph.textContent = city + ", " + country;
-        locationParagraph.classList.add('location');
-        // Ajout du tagline en paragraphe
-        const taglineParagraph = document.createElement('p');
-        taglineParagraph.textContent = tagline;
-        taglineParagraph.classList.add('tagline');
-        // Ajout du Price en paragraphe
-        const priceParagraph = document.createElement('p');
-        priceParagraph.textContent = price + "€/jour";
-        priceParagraph.classList.add('price');
+    return (article)
+  }
+  function photographerDetails () {
+    const divDetails = document.createElement('div')
+    divDetails.classList.add('photographer-details')
 
-        //Ajout des elements au dom
-        article.appendChild(link);
-        article.appendChild(locationParagraph);
-        article.appendChild(taglineParagraph);
-        article.appendChild(priceParagraph);
-        link.appendChild(img);
-        link.appendChild(h2);
+    const containerLocTag = document.createElement('div')
+    containerLocTag.classList.add('photographer-details-tl')
 
-        return (article);
-    }
-    function photographerDetails() {
+    const h1 = document.createElement('h1')
+    h1.textContent = name
 
-        const divDetails = document.createElement('div');
-        divDetails.classList.add('photographer-details');
+    // Paragraphe pour la ville et le pays
+    const locationParagraph = document.createElement('p')
+    locationParagraph.textContent = city + ', ' + country
+    locationParagraph.classList.add('location')
+    // Ajout du tagline en paragraphe
+    const taglineParagraph = document.createElement('p')
+    taglineParagraph.textContent = tagline
+    taglineParagraph.classList.add('tagline')
+    // Ajout des elements au dom
+    divDetails.appendChild(h1)
+    divDetails.appendChild(containerLocTag)
+    containerLocTag.appendChild(locationParagraph)
+    containerLocTag.appendChild(taglineParagraph)
 
-        const h1 = document.createElement('h1');
-        h1.textContent = name;
-        h1.classList= '.special-h1'
+    return (divDetails)
+  }
+  function photographerPhoto () {
+    const divImg = document.createElement('div')
+    divImg.classList.add('photographer-img')
 
-        // Paragraphe pour la ville et le pays
-        const locationParagraph = document.createElement('p');
-        locationParagraph.textContent = city + ", " + country;
-        locationParagraph.classList.add('location');
-        // Ajout du tagline en paragraphe
-        const taglineParagraph = document.createElement('p');
-        taglineParagraph.textContent = tagline;
-        taglineParagraph.classList.add('tagline');
-        //Ajout des elements au dom
-        divDetails.appendChild(h1);
-        divDetails.appendChild(locationParagraph);
-        divDetails.appendChild(taglineParagraph);
+    const img = document.createElement('img')
+    img.setAttribute('src', picture)
+    img.setAttribute('alt', name)
 
-        return (divDetails);
-    }
-    function photographerPhoto() {
+    divImg.appendChild(img)
 
-        const divImg = document.createElement('div');
-        divImg.classList.add('photographer-img');
+    return (divImg)
+  }
 
-        const img = document.createElement('img');
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
-
-        divImg.appendChild(img)
-
-
-        return (divImg);
-    }
-    
-    return { getUserCardDOM, photographerDetails, photographerPhoto }
+  return { getUserCardDOM, photographerDetails, photographerPhoto }
 }

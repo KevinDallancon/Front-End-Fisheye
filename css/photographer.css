@@ -5,6 +5,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .photograph-header {
     background-color: #FAFAFA;
@@ -15,14 +16,41 @@ main {
     justify-content: space-between;
     align-items: center;
 }
-
+.photograph-header button {
+    width: 170px;
+    height: 69px;
+    gap: 0px;
+    border-radius: 5px 0px 0px 0px;
+    opacity: 0px;
+}
 .photographer-details {
     order: 1;
+    padding: 40px;
 }
+.photographer-details-tl .location {
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.25px;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.photographer-details-tl .tagline {
+    font-family: DM Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.44px;
+    text-align: left;
+ }
+
 h1 {
     color: #D3573C;
     font-size: 64px;
     font-weight: 400;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .photographer-img {
@@ -72,7 +100,9 @@ h1 {
     font-weight: 500;
     font-size: 18px;
 }
-
+.sort-option {
+    border: 2px solid yellow;
+}
 .medias {
     display: flex;
     justify-content: space-between;

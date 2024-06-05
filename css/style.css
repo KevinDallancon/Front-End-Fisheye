@@ -17,6 +17,8 @@ header {
 header h1 {
     color: #901C1C;
     margin-right: 100px;
+    font-size: 36px;
+    font-weight: 400;
 }
 
 p {
@@ -55,7 +57,9 @@ p {
     border-radius: 50%;
     object-fit: cover;
 }
-
+.photographer-img {
+    padding: 40px;
+}
 .location {
     font-weight: 400;
     color: #901C1C;
