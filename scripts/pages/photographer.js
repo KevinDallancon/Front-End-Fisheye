@@ -105,11 +105,10 @@ function trieMedia (tableauMedia) {
 }
 
 // Fonction pour afficher le prix du photographe
-async function displayPrice (data) {
-  const sectionPhotographerPrice = document.querySelector('.photographer-price') // Sélectionne l'élément du DOM pour le prix
-  sectionPhotographerPrice.textContent = data.price + '€ /jour' // Met à jour le texte avec le prix du photographe
-  console.log(sectionPhotographerPrice)
-  document.getElementById('body').appendChild(sectionPhotographerPrice) // Ajoute l'élément au DOM
+async function displayInsert (data) {
+  const insert = document.querySelector('.photographer-insert') // Sélectionne l'élément du DOM pour le prix
+  insert.textContent = data.price + '€ /jour' // Met à jour le texte avec le prix du photographe
+  document.getElementById('body').appendChild(insert) // Ajoute l'élément au DOM
 }
 
 // Fonction d'initialisation qui récupère les données du photographe et affiche les médias
@@ -117,7 +116,7 @@ async function init () {
   // Récupère les données du photographe
   const selectedPhotographer = await getPhotographers(id)
   displayDataPhotographer(selectedPhotographer) // Affiche les données du photographe
-  displayPrice(selectedPhotographer) // Affiche le prix du photographe
+  displayInsert(selectedPhotographer) // Affiche le prix du photographe
   const selectedMedia = await getMediaPhotographers(id) // Récupère les médias du photographe
   displayMediaPhotographer(selectedMedia) // Affiche les médias du photographe
   trieMedia(selectedMedia) // Initialise le tri des médias

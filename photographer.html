@@ -45,26 +45,26 @@
         <h2>Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form role="form">
-        <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
-          <label for="prenom">Prénom</label>
-          <input type="text" name="prenom" id="prenom" required aria-required="true" aria-label="First name" aria-describedby="prenomHelp" />
-          <span id="prenomHelp">Votre prénom est requis.</span>
-          <label for="nom">Nom</label>
-          <input type="text" name="nom" id="nom" required aria-required="true" aria-label="Last name" aria-describedby="nomHelp" />
-          <span id="nomHelp">Votre nom est requis.</span>
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" required aria-required="true" aria-label="Email" aria-describedby="emailHelp" />
-          <span id="emailHelp">Votre email est requis.</span>
-          <label for="precisions">Votre message</label>
-          <textarea name="precisions" id="precisions" rows="4" aria-label="Your message" aria-describedby="precisionsHelp"></textarea>
-          <span id="precisionsHelp">Décrivez brièvement votre demande.</span>
-        </div>
-        <button type="submit" class="contact_button" aria-label="Send">Envoyer</button>
-      </form>
+        <form name="reserve" role="form">
+          <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" required aria-required="true" aria-label="First name" aria-describedby="prenomHelp" />
+            <span id="prenomHelp">Votre prénom est requis.</span>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" required aria-required="true" aria-label="Last name" aria-describedby="nomHelp" />
+            <span id="nomHelp">Votre nom est requis.</span>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required aria-required="true" aria-label="Email" aria-describedby="emailHelp" />
+            <span id="emailHelp">Votre email est requis.</span>
+            <label for="precisions">Votre message</label>
+            <textarea name="precisions" id="precisions" rows="4" aria-label="Your message" aria-required="true" aria-describedby="precisionsHelp"></textarea>
+            <span id="precisionsHelp">Décrivez brièvement votre demande.</span>
+          </div>
+          <button type="submit" class="contact_button" aria-label="Send">Envoyer</button>
+        </form>
     </div>
   </div>
-  <div class="photographer-price"></div>
+  <div class="photographer-insert"></div>
   <script type="module" src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
