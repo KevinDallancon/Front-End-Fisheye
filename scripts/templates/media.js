@@ -3,6 +3,8 @@ export function mediaTemplate (data) {
 
   const mediaVideo = `assets/${photographerId}/${video}`
   const picture = `assets/${photographerId}/${image}`
+  const likeDisplayed = parseInt(likes)
+  console.log(likeDisplayed)
 
   function getMediaDom () {
     const article = document.createElement('article')
@@ -16,6 +18,7 @@ export function mediaTemplate (data) {
       // Creation de l'element image
       const img = document.createElement('img')
       img.setAttribute('src', picture)
+      img.setAttribute('alt', title)
       media.appendChild(img)
     }
     if (video) {
@@ -30,7 +33,7 @@ export function mediaTemplate (data) {
     titleMedia.setAttribute('class', 'titleMedia')
     article.appendChild(titleMedia)
     // Creation du titre
-    const titleText = document.createElement('p')
+    const titleText = document.createElement('h3')
     titleText.textContent = title
     titleMedia.appendChild(titleText)
     // Creation du bloc coeur
@@ -44,8 +47,9 @@ export function mediaTemplate (data) {
     // Creation de l'icone coeur
     const heartIcon = document.createElement('i')
     heartIcon.setAttribute('class', 'heartIcon fas fa-heart')
+    // Ajout de l'aria-label pour l'accessibilité
+    heartIcon.setAttribute('aria-label', 'likes')
     heartDiv.appendChild(heartIcon)
-
     return article
   }
   function getMediaModal () {
@@ -57,6 +61,7 @@ export function mediaTemplate (data) {
       const img = document.createElement('img')
       img.setAttribute('src', picture)
       img.setAttribute('alt', title)
+      img.setAttribute('aria-label', 'image closeup view')
       mySlide.appendChild(img)
     }
     if (video) {
@@ -68,5 +73,5 @@ export function mediaTemplate (data) {
     }
     return mySlide
   }
-  return { getMediaDom, getMediaModal }
+  return { getMediaDom, getMediaModal, likeDisplayed }
 }

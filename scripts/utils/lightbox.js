@@ -9,29 +9,6 @@ document.addEventListener('keydown', function (event) {
   }
 })
 
-// Fonction pour afficher la lightbox avec une diapositive spécifique
-function displayLightbox (index) {
-  // Sélectionne la lightbox
-  const modal = document.getElementById('lightbox')
-  // Sélectionne toutes les diapositives de la lightbox
-  const slides = modal.getElementsByClassName('mySlides')
-  // Sélectionne le texte de légende
-  const captionText = document.getElementById('caption')
-
-  // Cache l'affichage des diapositives précédentes
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none'
-  }
-
-  // Affiche la diapositive spécifiée
-  slides[index].style.display = 'block'
-  // Met à jour le texte de légende avec le contenu de la diapositive
-  captionText.textContent = slides[index].querySelector('img, video').alt || ''
-
-  // Affiche la lightbox
-  modal.style.display = 'block'
-}
-
 // Fonction pour fermer la lightbox
 function closeLightbox () {
   // Sélectionne la lightbox et la masque
@@ -50,8 +27,9 @@ function showSlides (n) {
   const captionText = document.getElementById('caption')
 
   // Assure que l'index de la diapositive reste dans les limites du tableau
-  if (n >= slides.length) { slideIndex = 0 }
-  if (n < 0) { slideIndex = slides.length - 1 }
+  if (n >= slides.length) { slideIndex = 0 } else {
+    if (n < 0) { slideIndex = slides.length - 1 } else slideIndex = n
+  }
 
   // Cache l'affichage des diapositives précédentes
   for (let i = 0; i < slides.length; i++) {
@@ -62,6 +40,9 @@ function showSlides (n) {
   slides[slideIndex].style.display = 'block'
   // Met à jour le texte de légende avec le contenu de la diapositive
   captionText.textContent = slides[slideIndex].querySelector('img, video').alt || ''
+
+  // Affiche la lightbox
+  modal.style.display = 'block'
 }
 
 // Index de la diapositive actuellement affichée

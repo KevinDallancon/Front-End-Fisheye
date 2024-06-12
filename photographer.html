@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
   <body id="body">
     <header>
       <a href="./index.html" aria-label="Fisheye Home page">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="logo" />
       </a>
     </header>
     <main id="main">
@@ -29,12 +29,12 @@
       <div class="medias"></div>
     </main>
     <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
-      <span class="close cursor" onclick="closeLightbox()" aria-label="Fermer">&times;</span>
+      <span class="close cursor" onclick="closeLightbox()" aria-label="Close dialog">&times;</span>
       <div class="modal-content">
         <!-- Les slides de la lightbox seront insérés ici -->
       </div>
-      <a class="prev" onclick="plusSlides(-1)" aria-label="Diapositive précédente" role="button" tabindex="0">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)" aria-label="Diapositive suivante" role="button" tabindex="0">&#10095;</a>
+      <a class="prev" onclick="plusSlides(-1)" aria-label="Previous image" role="button" tabindex="0">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" aria-label="Next image" role="button" tabindex="0">&#10095;</a>
       <div class="caption-container">
         <p id="caption"></p>
       </div>
@@ -42,8 +42,11 @@
     <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <div>
+          <h2>Contactez-moi</h2>
+          <h2 class="photographer-name"></h2>
+        </div>
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close contact form" />
       </header>
         <form name="reserve" role="form">
           <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
@@ -64,7 +67,15 @@
         </form>
     </div>
   </div>
-  <div class="photographer-insert"></div>
+  <div class="photographer-insert">
+    <div class="flex">
+      <h3 id="totalLike"></h3>
+      <i class="heartIcon fas fa-heart"></i>
+    </div>
+    <div>
+      <h3 id="price"></h3>
+    </div>
+  </div>
   <script type="module" src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
