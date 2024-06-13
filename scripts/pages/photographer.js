@@ -113,10 +113,10 @@ function updateTotalLikes (change) {
   totalLikeElement.textContent = parseInt(totalLikeElement.textContent) + change
 }
 
-// Function pour afficher le nom du photographe 
+// Function pour afficher le nom du photographe
 
 // Fonction pour afficher le nom du photographe
-function displayNamePhotographer(photographerName) {
+function displayNamePhotographer (photographerName) {
   const photographerNameElement = document.querySelector('.photographer-name')
   photographerNameElement.textContent = photographerName
 }

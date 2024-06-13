@@ -1,5 +1,5 @@
 export function mediaTemplate (data) {
-  const { id, photographerId, title, image, video, likes, date, price } = data
+  const { id, photographerId, title, image, video, likes } = data
 
   const mediaVideo = `assets/${photographerId}/${video}`
   const picture = `assets/${photographerId}/${image}`
