@@ -55,16 +55,16 @@ async function displayMediaPhotographer (photographerMedia) {
 
     heartIcon.addEventListener('click', function (e) {
       e.preventDefault()
-      if (heartIcon.classList.contains('fas')) {
-        mediaModel.likeDisplayed--
-        likesText.textContent = mediaModel.likeDisplayed
-        heartIcon.classList.replace('fas', 'far')
-        updateTotalLikes(-1)
-      } else {
+      if (heartIcon.classList.contains('far')) {
         mediaModel.likeDisplayed++
         likesText.textContent = mediaModel.likeDisplayed
         heartIcon.classList.replace('far', 'fas')
         updateTotalLikes(1)
+      } else {
+        mediaModel.likeDisplayed--
+        likesText.textContent = mediaModel.likeDisplayed
+        heartIcon.classList.replace('fas', 'far')
+        updateTotalLikes(-1)
       }
     })
   })
