@@ -21,7 +21,6 @@ main {
     height: 69px;
     gap: 0px;
     border-radius: 5px 0px 0px 0px;
-    opacity: 0px;
 }
 .photographer-details {
     order: 1;
