@@ -10,8 +10,8 @@
   </head>
   <body id="body">
     <header>
-      <a href="./index.html" aria-label="Fisheye Home page">
-        <img src="assets/images/logo.png" class="logo" alt="logo" />
+      <a href="./index.html" >
+        <img src="assets/images/logo.png" class="logo" alt="logo fisheye" />
       </a>
     </header>
     <main id="main">
@@ -46,10 +46,10 @@
           <h2>Contactez-moi</h2>
           <h2 class="photographer-name"></h2>
         </div>
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close contact form" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="" />
       </header>
         <form name="reserve" role="form">
-          <div role="dialog" aria-labelledby="formHeading" aria-modal="true">
+          <div role="dialog" aria-modal="true">
             <label for="prenom">Prénom</label>
             <input type="text" name="prenom" id="prenom" required aria-required="true" aria-label="First name" aria-describedby="prenomHelp" />
             <span id="prenomHelp">Votre prénom est requis.</span>
@@ -70,7 +70,10 @@
   <div class="photographer-insert">
     <div class="flex">
       <h3 id="totalLike"></h3>
-      <i class="heartIcon fas fa-heart"></i>
+      <button aria-label="Aimer">
+        <span class="heartIcon fas fa-heart" aria-hidden="true"></span>
+      </button>      
+      <!-- <i class="heartIcon fas fa-heart"></i> -->
     </div>
     <div>
       <h3 id="price"></h3>

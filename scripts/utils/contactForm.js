@@ -7,8 +7,6 @@ const baliseMessage = document.getElementById('precisions')
 /* eslint-disable-next-line no-unused-vars */
 function displayModal () {
   modal.style.display = 'block'
-  const nameForm = document.querySelector('.name')
-  nameForm.textContent = name
 }
 /* eslint-disable-next-line no-unused-vars */
 function closeModal () {

@@ -263,12 +263,13 @@ form input {
     align-items: center;
 }
 
-.flex i {
-    margin-left: 5px;
+.flex button {
+    border: none;
+    background-color: #DB8876;
+}
+.flex button span {
     color: #000000;
 }
-
-
 
 
 
