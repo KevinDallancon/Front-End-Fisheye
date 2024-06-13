@@ -4,16 +4,17 @@ const balisePrenom = document.getElementById('prenom')
 const baliseNom = document.getElementById('nom')
 const baliseMail = document.getElementById('email')
 const baliseMessage = document.getElementById('precisions')
-
+/* eslint-disable-next-line no-unused-vars */
 function displayModal () {
   modal.style.display = 'block'
   const nameForm = document.querySelector('.name')
   nameForm.textContent = name
 }
-
+/* eslint-disable-next-line no-unused-vars */
 function closeModal () {
   modal.style.display = 'none'
 }
+
 
 // Fonction pour valider les prénoms et les noms avec une expression régulière
 function verifierPrenomNom (balise) {
