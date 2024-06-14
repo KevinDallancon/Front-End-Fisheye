@@ -48,6 +48,7 @@ export function mediaTemplate (data) {
     // Creation de l'icone coeur
     const heartIcon = document.createElement('i')
     heartIcon.setAttribute('class', 'heartIcon far fa-heart')
+    heartIcon.setAttribute('tabindex', '0')
     // Ajout de l'aria-label pour l'accessibilité
     heartIcon.setAttribute('aria-label', 'likes')
     heartDiv.appendChild(heartIcon)

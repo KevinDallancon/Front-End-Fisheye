@@ -49,7 +49,13 @@ async function displayMediaPhotographer (photographerMedia) {
     const likesText = mediaElement.querySelector('.heartDiv p')
     totalLikes += mediaModel.likeDisplayed
 
-    mediaElement.querySelector('img, video').addEventListener('click', () => showSlides(index))
+    const mediaItem = mediaElement.querySelector('img, video')
+    mediaItem.addEventListener('click', () => showSlides(index))
+    mediaItem.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        showSlides(index)
+      }
+    })
     sectionMedia.appendChild(mediaElement)
     modalContent.appendChild(mediaSlide)
 
@@ -67,6 +73,22 @@ async function displayMediaPhotographer (photographerMedia) {
         updateTotalLikes(-1)
       }
     })
+    heartIcon.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        if (heartIcon.classList.contains('far')) {
+          mediaModel.likeDisplayed++
+          likesText.textContent = mediaModel.likeDisplayed
+          heartIcon.classList.replace('far', 'fas')
+          updateTotalLikes(1)
+        } else {
+          mediaModel.likeDisplayed--
+          likesText.textContent = mediaModel.likeDisplayed
+          heartIcon.classList.replace('fas', 'far')
+          updateTotalLikes(-1)
+        }
+      }
+    })  
   })
 
   displayTotalLike(totalLikes)
