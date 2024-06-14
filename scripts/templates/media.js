@@ -19,6 +19,7 @@ export function mediaTemplate (data) {
       const img = document.createElement('img')
       img.setAttribute('src', picture)
       img.setAttribute('alt', title)
+      img.setAttribute('tabindex', '0')
       media.appendChild(img)
     }
     if (video) {
